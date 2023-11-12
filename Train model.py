@@ -55,3 +55,4 @@ def train_and_evaluate_model(train_ds, input_features):
         exclude_non_specified_features=True,  # Only use the features in "input_features"
         random_seed=1234,
     )
+    model.fit(train_ds)
