@@ -64,4 +64,5 @@ def train_and_evaluate_model(train_ds, input_features):
     
     return accuracy, loss
 accuracy, loss = train_and_evaluate_model(train_ds, input_features)
+print(f"Accuracy: {accuracy} Loss: {loss}")
 
