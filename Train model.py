@@ -96,3 +96,6 @@ def prediction_to_kaggle_format(model, threshold=0.5):
         "PassengerId": serving_df["PassengerId"],
         "Survived": (proba_survive >= threshold).astype(int)
     })
+
+def make_submission(kaggle_predictions):
+   
