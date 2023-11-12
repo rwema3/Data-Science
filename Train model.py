@@ -37,3 +37,10 @@ input_features = list(preprocessed_train_df.columns)
 input_features.remove("Ticket")
 input_features.remove("PassengerId")
 input_features.remove("Survived")
+#input_features.remove("Ticket_number")
+
+print(f"Input features: {input_features}")
+def tokenize_names(features, labels=None):
+    """Divite the names into tokens. TF-DF can consume text tokens natively."""
+    features["Name"] =  tf.strings.split(features["Name"])
+    return features, labels
