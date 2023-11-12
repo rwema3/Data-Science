@@ -89,3 +89,10 @@ model.fit(train_ds)
 self_evaluation = model.make_inspector().evaluation()
 print(f"Accuracy: {self_evaluation.accuracy} Loss:{self_evaluation.loss}")
 model.summary()
+
+def prediction_to_kaggle_format(model, threshold=0.5):
+    proba_survive = model.predict(serving_ds, verbose=0)[:,0]
+    return pd.DataFrame({
+        "PassengerId": serving_df["PassengerId"],
+        "Survived": (proba_survive >= threshold).astype(int)
+    })
