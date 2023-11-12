@@ -22,3 +22,9 @@ def custom_ticket_item(x):
     if len(items) == 1:
         return "NONE"
     return "_".join(items[0:-1])
+def preprocess_df(df):
+    df = df.copy()
+    df["Name"] = df["Name"].apply(custom_normalize_name)
+    df["Ticket_number"] = df["Ticket"].apply(custom_ticket_number)
+    df["Ticket_item"] = df["Ticket"].apply(custom_ticket_item)   
+    return df
