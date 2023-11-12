@@ -79,3 +79,9 @@ model = tfdf.keras.GradientBoostedTreesModel(
     split_axis="SPARSE_OBLIQUE",
     sparse_oblique_normalization="MIN_MAX",
 
+    sparse_oblique_num_projections_exponent=2.0,
+    num_trees=2000,
+    #validation_ratio=0.0,
+    random_seed=1234,
+    
+)
