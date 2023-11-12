@@ -65,4 +65,8 @@ def train_and_evaluate_model(train_ds, input_features):
     return accuracy, loss
 accuracy, loss = train_and_evaluate_model(train_ds, input_features)
 print(f"Accuracy: {accuracy} Loss: {loss}")
+model = tfdf.keras.GradientBoostedTreesModel(
+    verbose=0, # Very few logs
+    features=[tfdf.keras.FeatureUsage(name=n) for n in input_features],
+    exclude_non_specified_features=True, # Only use the features in "features"
 
