@@ -28,3 +28,5 @@ def preprocess_df(df):
     df["Ticket_number"] = df["Ticket"].apply(custom_ticket_number)
     df["Ticket_item"] = df["Ticket"].apply(custom_ticket_item)   
     return df
+preprocessed_train_df = preprocess_df(train_df)
+preprocessed_serving_df = preprocess_df(serving_df)
