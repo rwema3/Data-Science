@@ -30,3 +30,5 @@ def preprocess_df(df):
     return df
 preprocessed_train_df = preprocess_df(train_df)
 preprocessed_serving_df = preprocess_df(serving_df)
+
+preprocessed_train_df.head(5)
