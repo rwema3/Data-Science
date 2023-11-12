@@ -32,3 +32,8 @@ preprocessed_train_df = preprocess_df(train_df)
 preprocessed_serving_df = preprocess_df(serving_df)
 
 preprocessed_train_df.head(5)
+
+input_features = list(preprocessed_train_df.columns)
+input_features.remove("Ticket")
+input_features.remove("PassengerId")
+input_features.remove("Survived")
