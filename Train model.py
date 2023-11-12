@@ -85,3 +85,4 @@ model = tfdf.keras.GradientBoostedTreesModel(
     random_seed=1234,
     
 )
+model.fit(train_ds)
