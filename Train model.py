@@ -47,3 +47,11 @@ def tokenize_names(features, labels=None):
 
 train_ds = tfdf.keras.pd_dataframe_to_tf_dataset(preprocessed_train_df,label="Survived").map(tokenize_names)
 serving_ds = tfdf.keras.pd_dataframe_to_tf_dataset(preprocessed_serving_df).map(tokenize_names)
+
+def train_and_evaluate_model(train_ds, input_features):
+    model = tfdf.keras.GradientBoostedTreesModel(
+        verbose=0,  # Very few logs
+        features=[tfdf.keras.FeatureUsage(name=n) for n in input_features],
+        exclude_non_specified_features=True,  # Only use the features in "input_features"
+        random_seed=1234,
+    )
