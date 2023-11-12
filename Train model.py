@@ -100,3 +100,4 @@ def prediction_to_kaggle_format(model, threshold=0.5):
 def make_submission(kaggle_predictions):
     path="/kaggle/working/submission.csv"
     kaggle_predictions.to_csv(path, index=False)
+    print(f"Submission exported to {path}")
