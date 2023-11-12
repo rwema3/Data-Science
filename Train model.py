@@ -44,3 +44,6 @@ def tokenize_names(features, labels=None):
     """Divite the names into tokens. TF-DF can consume text tokens natively."""
     features["Name"] =  tf.strings.split(features["Name"])
     return features, labels
+
+train_ds = tfdf.keras.pd_dataframe_to_tf_dataset(preprocessed_train_df,label="Survived").map(tokenize_names)
+serving_ds = tfdf.keras.pd_dataframe_to_tf_dataset(preprocessed_serving_df).map(tokenize_names)
