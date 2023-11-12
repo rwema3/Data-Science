@@ -98,4 +98,5 @@ def prediction_to_kaggle_format(model, threshold=0.5):
     })
 
 def make_submission(kaggle_predictions):
-   
+    path="/kaggle/working/submission.csv"
+    
