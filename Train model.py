@@ -86,3 +86,6 @@ model = tfdf.keras.GradientBoostedTreesModel(
     
 )
 model.fit(train_ds)
+self_evaluation = model.make_inspector().evaluation()
+print(f"Accuracy: {self_evaluation.accuracy} Loss:{self_evaluation.loss}")
+model.summary()
