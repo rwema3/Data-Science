@@ -56,3 +56,7 @@ def train_and_evaluate_model(train_ds, input_features):
         random_seed=1234,
     )
     model.fit(train_ds)
+    
+    self_evaluation = model.make_inspector().evaluation()
+    accuracy = self_evaluation.accuracy
+    loss = self_evaluation.loss
