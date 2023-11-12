@@ -69,4 +69,8 @@ model = tfdf.keras.GradientBoostedTreesModel(
     verbose=0, # Very few logs
     features=[tfdf.keras.FeatureUsage(name=n) for n in input_features],
     exclude_non_specified_features=True, # Only use the features in "features"
+    
+    min_examples=1,
+    categorical_algorithm="RANDOM",
+    #max_depth=4,
 
